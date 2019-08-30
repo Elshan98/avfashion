@@ -1,0 +1,91 @@
+<% include partials/header%>
+<!--================Home Banner Area =================-->
+<section class="home_banner_area blog_banner">
+  <div class="banner_inner d-flex align-items-center">
+    <div
+      class="overlay bg-parallax"
+      data-stellar-ratio="0.9"
+      data-stellar-vertical-offset="0"
+      data-background=""
+    ></div>
+    <div class="container">
+      <div class="blog_b_text text-center">
+        <h2>
+          Dude You’re Getting <br />
+          a Telescope
+        </h2>
+        <p>
+          There is a moment in the life of any aspiring astronomer that it is
+          time to buy that first
+        </p>
+        <a class="white_bg_btn" href="#">View More</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!--================Blog Categorie Area =================-->
+<section class="blog_categorie_area"></section>
+<!--================Blog Categorie Area =================-->
+
+<!--================Blog Area =================-->
+<section class="blog_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="blog_left_sidebar">
+          <%blogs.forEach(function(result){%>
+          <article class="row blog_item">
+            <div class="col-md-3">
+              <div class="blog_info text-right">
+                <div class="post_tag">
+                  <a href="#"><%=result.title%></a>
+                </div>
+                <ul class="blog_meta list">
+                  <li>
+                    <a href="#"
+                      ><%=result.write%>
+                      <i class="lnr lnr-user"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><%=result.time%>
+                      <i class="lnr lnr-calendar-full"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <form action="/bloglike/<%=result._id%>" method="post">
+                        <button
+                          style="background-color: transparent;outline: none;border: none;cursor: pointer;"
+                          type="submit"
+                        >
+                          <i class="far fa-thumbs-up"></i></button
+                        ><%=result.likecount%>
+                      </form>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="blog_post">
+                <img src="img/blog/main-blog/m-blog-4.jpg" alt="" />
+                <div class="blog_details">
+                  <a href="single-blog.html">
+                    <h2><%=result.title%></h2>
+                  </a>
+                  <p><%=result.description%></p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <%});%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<% include partials/footer%>
